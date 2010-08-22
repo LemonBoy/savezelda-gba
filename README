@@ -1,0 +1,34 @@
+This is a save editor for the gba game
+The Legend Of Zelda : A Link To The Past
+I wanted to change the character name so i 
+picked up no$gba and reversed the checksum
+alghoritm. Additionally ive reversed other 
+parts of the save so i could enable hidden 
+sword powers and delete/recover slots.
+
+Features:
+- Change character name
+- Enable beam sword/hurricane spin powers
+- Fix slot checksums
+- Delete slots
+- Recover deleted slots (never overwritten)
+
+The EUR version is byteswapped by 8 (wtf?)
+and you must swap it using 'swap.py' before
+and after editing. To use the script just do
+
+python swap.py infile outfile
+
+It checks just the main table and not the 
+secondary one (0x1000) but as long as the 
+primary is valid the game doesnt need that.
+
+Ive also unrolled two patches to disable 
+the checksum checking in game. Just put a
+NOP (Thumb) (0x0000) and youre done :D
+
+USA offsets : 0x08067e40 0x08067e4C
+EUR offsets : 0x08068a08 0x08068a14
+
+Code/reverse engineering (C) The Lemon Man
+GoGoGo #HACKERCHANNEL !
